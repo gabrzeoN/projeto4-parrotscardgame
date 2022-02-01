@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+
+    text-align: center;
+    /* flex-wrap: wrap; */
+    /* position: absolute; */
+    /* width: 540px; */
+    /* height: 63px; */
+    /* left: 285px; */
+    /* top: 40px; */  
+}
+
+h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+}
+
+main{
+    /* background-color: blue; */
+    height: auto;
+    width: 70vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.card{
+    background-color: #A7E9AF;
+    width: 117px;
+    height: 146px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    margin: 17px;
+   
+/* position: absolute;
+    width: 117px;
+    height: 146px;
+    left: 122px;
+    top: 150px; */
+
+    /* background: #A7E9AF; */  
+    /* box-sizing: border-box; */
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width: 750px){
+    main{
+        width: 100vw;  
+    }
+}
