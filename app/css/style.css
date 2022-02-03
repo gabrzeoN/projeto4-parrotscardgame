@@ -37,7 +37,7 @@ h1{
 }
 
 main{
-    /* background-color: blue; */
+    background-color: blue;
     height: auto;
     width: 70vw;
 
@@ -51,26 +51,43 @@ main{
 }
 
 .card{
-    background-color: #A7E9AF;
+    background-color: aqua;
+    margin: 17px;
     width: 117px;
     height: 146px;
+    position: relative;
+    /* border: 1px solid #99CEA8; */
+    transform-style: preserve-3d;
+     transform: all .5s;
+
+     display: flex;
+     justify-content: center;
+}
+
+.face{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #99CEA8;
+    background-color: #A7E9AF;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+}
 
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    margin: 17px;
-   
-/* position: absolute;
-    width: 117px;
-    height: 146px;
-    left: 122px;
-    top: 150px; */
+.front-face{
+    transform: rotateY(180deg);
 
-    /* background: #A7E9AF; */  
-    /* box-sizing: border-box; */
+}
+
+.back-face{
+    
+}
+
+.flip{
+    transform: rotateY(180deg);
 }
 
 img{
