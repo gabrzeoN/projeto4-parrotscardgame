@@ -1,5 +1,6 @@
-let cardsQuantity = 0;
+let cardsQuantity = 4; // TROCAR PARA 0 DEPOIS.
 let cardsInGame = [];
+let cardsTurned = [];
 const allCards = [
     "unicornparrot.gif",
     "metalparrot.gif",
@@ -11,7 +12,7 @@ const allCards = [
 ];
 
 
-function comparador() { 
+function comparator() { 
 	return Math.random() - 0.5; 
 }
 
@@ -27,7 +28,7 @@ function insertCards(){
         cardsInGame.push(allCards[i]);
     }
 
-    cardsInGame.sort(comparador);
+    cardsInGame.sort(comparator);
 
     // Zerar o HTML das cartas.
     const main = document.querySelector("main");
@@ -52,9 +53,33 @@ function insertCards(){
 
 
 function turnCard(card){
-    card.classList.toggle("flip");
+    if(card.classList.contains("flip")){// Se carta já estiver ok
+        console.log("ja tem flip");
+    }
+    else if(cardsTurned.length === 0){// Se não tiver nenhuma carta virada
+        card.classList.add("flip");// Vira
+        cardsTurned[0] = card; // Insere no vetor
+    }else if (cardsTurned.length === 1){// Se tiver uma carta virada
+        card.classList.add("flip"); // Vira outra
+        cardsTurned[1] = card; // Insere outra no vetor
+
+        compareCards();
+    }else{// Se já tiver duas cartas viradas
+        console.log("ja tem 2 apertada");
+    }
 }
 
+function compareCards(){
+    if(cardsTurned[0].innerHTML === cardsTurned[1].innerHTML){
+        cardsTurned.length = 0;
+    }else{
+        setTimeout(untapCards, 1500);
+    }
+}
 
-
-insertCards();
+function untapCards(){
+    cardsTurned[0].classList.remove("flip");
+    cardsTurned[1].classList.remove("flip");
+    cardsTurned.length = 0;
+}
+setTimeout(insertCards, 1); // TROCA PARA 1500 DEPOIS
