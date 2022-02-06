@@ -1,8 +1,9 @@
-let cardsQuantity = 14; // TROCAR PARA 0 DEPOIS.
+let cardsQuantity = 0; // TROCAR PARA 0 DEPOIS.
 let cardsInGame = [];
 let cardsTurned = [];
 let movesMade = 0;
 let time = 0;
+let timeInterval = null;
 const minCardsInGame = 4;
 const maxCardsInGame = 14;
 const allCards = [
@@ -22,7 +23,7 @@ function comparator() {
 
 function insertCards(){
     while( (cardsQuantity < minCardsInGame) || (cardsQuantity > maxCardsInGame) || (cardsQuantity % 2 !== 0) ){
-        cardsQuantity = prompt("Deseja jogar com quantas cartas? (Número par entre 4 e 14)");
+        cardsQuantity = prompt("Deseja jogar com quantas cartas? (Número PAR entre 4 e 14)");
     }
     
     // cardsInGame = [];
@@ -52,6 +53,7 @@ function insertCards(){
         `;
     }
     
+    timeInterval = setInterval(raiseTime, 1000);
 
 }
 
@@ -101,24 +103,38 @@ function compareAllFlipped(){
 }
 
 function gameOver(){
-    console.log(alert(`Parabéns, você ganhou em ${movesMade} jogadas e em Y segundos!`));
-    // restartGame();
+    clearInterval(timeInterval);
+    console.log(alert(`Parabéns, você ganhou em ${movesMade} jogadas e em ${time} segundos!`));
+    restartGame();
 }
 
 function restartGame(){
     if(prompt("Gostaria de reiniciar a partida? (s / n)") === "s"){
-
+        setTime();
+        cardsQuantity = 0;
+        cardsInGame = [];
+        movesMade = 0;
+        insertCards();
     }else{
-
+        alert("Obrigado por jogar Parrot Card Game!");
     }
 }
 
-function raiseTime(){
+function setTime(){
+    const timer = document.querySelector(".clock p");
+    timer.innerHTML = 0;
+    time = 0;
+}
 
+function raiseTime(){
+    time++;
+    const timer = document.querySelector(".clock p");
+    timer.innerHTML = time;
+    
 }
 
 function stopTime(){
 
 }
 
-setTimeout(insertCards, 1); // TROCAR PARA 1500 DEPOIS
+setTimeout(insertCards, 500); // TROCAR PARA 1500 DEPOIS

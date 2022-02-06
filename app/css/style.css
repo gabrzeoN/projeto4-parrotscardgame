@@ -3,6 +3,7 @@
 }
 
 body{
+    font-family: Roboto;
     background-color: #EEF9BF;
     display: flex;
     flex-direction: column;
@@ -27,7 +28,6 @@ header{
 }
 
 h1{
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 56px;
@@ -113,7 +113,7 @@ img{
 .clock h1, p{
     color: red;
     font-size: 22px;
-    font-style: normal;
+    font-weight: bold;
 }
 
 @media (max-width: 750px){
