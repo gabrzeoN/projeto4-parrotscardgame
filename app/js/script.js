@@ -109,7 +109,8 @@ function gameOver(){
 }
 
 function restartGame(){
-    if(prompt("Gostaria de reiniciar a partida? (s / n)") === "s"){
+    const restartGameAnswer = prompt("Gostaria de reiniciar a partida? (s / n)");
+    if( restartGameAnswer === "s" || restartGameAnswer === "S"){
         setTime();
         cardsQuantity = 0;
         cardsInGame = [];
