@@ -96,8 +96,43 @@ img{
     height: 100px;
 }
 
+.clock{
+    /* background-color: blueviolet; */
+    /* width: 20px; */
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 30%;
+    right: 10%;
+
+}
+
+.clock h1, p{
+    color: red;
+    font-size: 22px;
+    font-style: normal;
+}
+
 @media (max-width: 750px){
     main{
-        width: 100vw;  
+        width: 70vw;  
     }
+
+    .clock{
+        /* background-color: blueviolet; */
+        /* width: 20px; */
+        height: 30px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 42%;
+        right: 8%;
+    
+    }
+
 }

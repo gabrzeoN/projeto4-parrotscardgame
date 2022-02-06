@@ -1,4 +1,4 @@
-let cardsQuantity = 4; // TROCAR PARA 0 DEPOIS.
+let cardsQuantity = 14; // TROCAR PARA 0 DEPOIS.
 let cardsInGame = [];
 let cardsTurned = [];
 let movesMade = 0;
