@@ -37,7 +37,7 @@ h1{
 }
 
 main{
-    background-color: blue;
+    /* background-color: blue; */
     height: auto;
     width: 70vw;
 
@@ -58,10 +58,10 @@ main{
     position: relative;
     /* border: 1px solid #99CEA8; */
     transform-style: preserve-3d;
-     transform: all .5s;
+    transform: all .5s;
 
-     display: flex;
-     justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .face{
@@ -70,7 +70,8 @@ main{
     border-radius: 5px;
     border: 1px solid #99CEA8;
     background-color: #A7E9AF;
-
+    backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,6 +1,10 @@
 let cardsQuantity = 4; // TROCAR PARA 0 DEPOIS.
 let cardsInGame = [];
 let cardsTurned = [];
+let movesMade = 0;
+let time = 0;
+const minCardsInGame = 4;
+const maxCardsInGame = 14;
 const allCards = [
     "unicornparrot.gif",
     "metalparrot.gif",
@@ -17,7 +21,7 @@ function comparator() {
 }
 
 function insertCards(){
-    while( (cardsQuantity < 4) || (cardsQuantity > 14) || (cardsQuantity % 2 !== 0) ){
+    while( (cardsQuantity < minCardsInGame) || (cardsQuantity > maxCardsInGame) || (cardsQuantity % 2 !== 0) ){
         cardsQuantity = prompt("Deseja jogar com quantas cartas? (Número par entre 4 e 14)");
     }
     
@@ -70,8 +74,10 @@ function turnCard(card){
 }
 
 function compareCards(){
+    movesMade += 2;
     if(cardsTurned[0].innerHTML === cardsTurned[1].innerHTML){
         cardsTurned.length = 0;
+        compareAllFlipped();
     }else{
         setTimeout(untapCards, 1500);
     }
@@ -82,4 +88,37 @@ function untapCards(){
     cardsTurned[1].classList.remove("flip");
     cardsTurned.length = 0;
 }
-setTimeout(insertCards, 1); // TROCA PARA 1500 DEPOIS
+
+function compareAllFlipped(){
+    const allCardsInGame = document.querySelectorAll(".card");
+    for(let i = 0; i < cardsInGame.length; i++){
+        if(!allCardsInGame[i].classList.contains("flip")){
+            return;
+        }
+    }
+    setTimeout(gameOver, 1000);
+    // restartGame();
+}
+
+function gameOver(){
+    console.log(alert(`Parabéns, você ganhou em ${movesMade} jogadas e em Y segundos!`));
+    // restartGame();
+}
+
+function restartGame(){
+    if(prompt("Gostaria de reiniciar a partida? (s / n)") === "s"){
+
+    }else{
+
+    }
+}
+
+function raiseTime(){
+
+}
+
+function stopTime(){
+
+}
+
+setTimeout(insertCards, 1); // TROCAR PARA 1500 DEPOIS
