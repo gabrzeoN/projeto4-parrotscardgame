@@ -1,4 +1,4 @@
-let cardsQuantity = 0; // TROCAR PARA 0 DEPOIS.
+let cardsQuantity = 0;
 let cardsInGame = [];
 let cardsTurned = [];
 let movesMade = 0;
@@ -16,7 +16,6 @@ const allCards = [
     "bobrossparrot.gif"
 ];
 
-
 function comparator() { 
 	return Math.random() - 0.5; 
 }
@@ -26,51 +25,43 @@ function insertCards(){
         cardsQuantity = prompt("Deseja jogar com quantas cartas? (Número PAR entre 4 e 14)");
     }
     
-    // cardsInGame = [];
-    // Separar as cartas que farão parte do jogo em um vetor e embaralhar esse vetor.
     for(let i = 0; i < cardsQuantity / 2; i++){
         cardsInGame.push(allCards[i]);
         cardsInGame.push(allCards[i]);
     }
 
     cardsInGame.sort(comparator);
-
-    // Zerar o HTML das cartas.
     const main = document.querySelector("main");
     main.innerHTML = "";
 
-    // Colocar o vetor de cartas no HTML
     for(let i = 0; i < cardsQuantity; i++){
         main.innerHTML += `
-            <div class="card" onclick="turnCard(this)">
-                <div class="face front-face">
+            <div class="card" onclick="turnCard(this)" data-identifier="card">
+                <div class="face front-face" data-identifier="front-face">
                     <img src="app/gifs/${cardsInGame[i]}" alt="Frente da carta">
                 </div>
-                <div class="face back-face">
+                <div class="face back-face" data-identifier="back-face">
                     <img src="app/images/front.png" alt="Verso da carta">
                 </div>
             </div>
         `;
     }
-    
     timeInterval = setInterval(raiseTime, 1000);
-
 }
 
 
 function turnCard(card){
-    if(card.classList.contains("flip")){// Se carta já estiver ok
+    if(card.classList.contains("flip")){// If card and it's pair is already flipped.
         console.log("ja tem flip");
     }
-    else if(cardsTurned.length === 0){// Se não tiver nenhuma carta virada
-        card.classList.add("flip");// Vira
-        cardsTurned[0] = card; // Insere no vetor
-    }else if (cardsTurned.length === 1){// Se tiver uma carta virada
-        card.classList.add("flip"); // Vira outra
-        cardsTurned[1] = card; // Insere outra no vetor
-
+    else if(cardsTurned.length === 0){// If no card is flipped.
+        card.classList.add("flip");
+        cardsTurned[0] = card;
+    }else if (cardsTurned.length === 1){// If one card is flipped.
+        card.classList.add("flip");
+        cardsTurned[1] = card;
         compareCards();
-    }else{// Se já tiver duas cartas viradas
+    }else{// If there is two cards already flipped.
         console.log("ja tem 2 apertada");
     }
 }
@@ -99,7 +90,6 @@ function compareAllFlipped(){
         }
     }
     setTimeout(gameOver, 1000);
-    // restartGame();
 }
 
 function gameOver(){
@@ -130,12 +120,7 @@ function setTime(){
 function raiseTime(){
     time++;
     const timer = document.querySelector(".clock p");
-    timer.innerHTML = time;
-    
+    timer.innerHTML = time;  
 }
 
-function stopTime(){
-
-}
-
-setTimeout(insertCards, 500); // TROCAR PARA 1500 DEPOIS
+setTimeout(insertCards, 500);

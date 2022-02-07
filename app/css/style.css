@@ -12,19 +12,11 @@ body{
 }
 
 header{
-    /* background-color: aqua; */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 20vh;
-
     text-align: center;
-    /* flex-wrap: wrap; */
-    /* position: absolute; */
-    /* width: 540px; */
-    /* height: 63px; */
-    /* left: 285px; */
-    /* top: 40px; */  
 }
 
 h1{
@@ -37,54 +29,44 @@ h1{
 }
 
 main{
-    /* background-color: blue; */
     height: auto;
     width: 70vw;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
 
 .card{
-    /* background-color: aqua; */
     margin: 17px;
     width: 117px;
     height: 146px;
-    position: relative;
-    /* border: 1px solid #99CEA8; */
     transform-style: preserve-3d;
     transition: all .5s;
-    
-
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .face{
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    border: 1px solid #99CEA8;
+    border: 2px solid #99CEA8;
     background-color: #A7E9AF;
+    box-shadow: 7px 5px 19px 3px rgba(0,0,0,0.25);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-
-    box-shadow: 7px 5px 19px 3px rgba(0,0,0,0.25);
+    position: absolute; 
 }
 
 .front-face{
     transform: rotateY(180deg);
-    backface-visibility: hidden;
-
 }
 
 .back-face{
@@ -93,39 +75,6 @@ main{
 .flip{
     transform: rotateY(180deg);
 }
-
-/* .card{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform-style: preserve-3d;
-    position: relative;
-    transition: all .5s;
-}
-
-.face{
-    width: 100px;
-    height: 100px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    
-}
-
-.front-face{
-    background-color: #75B79E;
-    transform: rotateY(180deg);
-}
-
-.back-face{
-    background-color: #355045;
-}
-
-.flip{
-    transform: rotateY(180deg);
-} */
 
 img{
     width: 100px;
@@ -133,10 +82,7 @@ img{
 }
 
 .clock{
-    /* background-color: blueviolet; */
-    /* width: 20px; */
     height: 30px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,17 +104,13 @@ img{
     }
 
     .clock{
-        /* background-color: blueviolet; */
-        /* width: 20px; */
         height: 30px;
-    
         display: flex;
         justify-content: center;
         align-items: center;
         position: fixed;
         top: 42%;
-        right: 8%;
+        right: 5%;
     
     }
-
 }
